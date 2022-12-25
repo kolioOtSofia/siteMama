@@ -1,9 +1,9 @@
 ---
 const pathname = Astro.url.pathname;
 const activeClasses =
-  "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium dropdown relative";
+  "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium dropdown relative nav-item";
 const inactiveClasses =
-  "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium dropdown relative";
+  "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium dropdown relative nav-item";
 const menuItems = [
   { text: "Home", path: "/" },
   { text: "За нас", path: "/info" },
@@ -92,15 +92,16 @@ const menuItems = [
           <div class="flex space-x-4">
             {
               menuItems.map((item) => (
-                  <a
-                    href={item.path}
+                  <button
+                    id={item.path}
+                    //href={item.path}
                     class={
                       pathname == item.path ? activeClasses : inactiveClasses
                     }
                     aria-current="page"
                   >
                     {item.text}
-                  </a>
+                  </button>
               ))
             }
           </div>
@@ -139,3 +140,16 @@ const menuItems = [
     </div>
   </div>
 </nav>
+
+<script>
+  // Find all buttons with the `alert` class on the page.
+  const buttons = document.querySelectorAll('button.nav-item');
+
+  // Handle clicks on each button.
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      console.log('test')
+      window.location.href = button.id
+    });
+  });
+</script>
