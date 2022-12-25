@@ -1,9 +1,9 @@
 ---
 const pathname = Astro.url.pathname;
 const activeClasses =
-  "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium dropdown relative nav-item";
+  "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium nav-item";
 const inactiveClasses =
-  "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium dropdown relative nav-item";
+  "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium nav-item";
 const menuItems = [
   { text: "Home", path: "/" },
   { text: "За нас", path: "/info" },
@@ -90,20 +90,108 @@ const menuItems = [
       >
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
-            {
-              menuItems.map((item) => (
-                  <button
-                    id={item.path}
-                    //href={item.path}
-                    class={
-                      pathname == item.path ? activeClasses : inactiveClasses
-                    }
-                    aria-current="page"
-                  >
-                    {item.text}
-                  </button>
-              ))
-            }
+            <div class="dropdown group  relative">
+              {
+                menuItems.map((item) => (
+                  <>
+                    <button
+                      id={item.path}
+                      class={
+                        pathname == item.path ? activeClasses : inactiveClasses
+                      }
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      aria-current="page"
+                    >
+                      {item.text}
+                    </button>
+                    <div class="group-hover:block dropdown-menu absolute hidden h-auto">
+                      <ul
+                        class="
+                        min-w-max
+                        bg-white
+                        text-base
+                        z-50
+                        float-left
+                        py-2
+                        list-none
+                        text-left
+                        rounded-lg
+                        shadow-lg
+                        mt-1
+                        m-0
+                        bg-clip-padding
+                        border-none
+                      "
+                        aria-labelledby="dropdownMenuButton1"
+                      >
+                        <li>
+                          <a
+                            class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+                            href="#"
+                          >
+                            Action
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+                            href="#"
+                          >
+                            Another action
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            class="
+              dropdown-item
+              text-sm
+              py-2
+              px-4
+              font-normal
+              block
+              w-full
+              whitespace-nowrap
+              bg-transparent
+              text-gray-700
+              hover:bg-gray-100
+            "
+                            href="#"
+                          >
+                            Something else here
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </>
+                ))
+              }
+            </div>
           </div>
         </div>
       </div>
@@ -143,13 +231,12 @@ const menuItems = [
 
 <script>
   // Find all buttons with the `alert` class on the page.
-  const buttons = document.querySelectorAll('button.nav-item');
+  const buttons = document.querySelectorAll("button.nav-item");
 
   // Handle clicks on each button.
   buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      console.log('test')
-      window.location.href = button.id
+    button.addEventListener("click", () => {
+      window.location.href = button.id;
     });
   });
 </script>
