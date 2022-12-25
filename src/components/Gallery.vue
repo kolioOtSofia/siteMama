@@ -1,19 +1,19 @@
 <template>
   <!-- <script src="../../node_modules/tw-elements/dist/js/index.min.js"></script> -->
 
-  <section class="overflow-hidden text-gray-700">
-    <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
+  <section class="overflow-hidden text-white">
+    <div class="container py-2 mx-auto lg:pt-12 ">
       <div class="flex flex-wrap -m-1 md:-m-2">
         <div
           v-for="project in refs.projects.value"
           class="flex relative flex-wrap w-1/3"
         >
-          <div class="w-full p-1 md:p-2">
+          <div class="w-full parent">
             <img
               @mouseover="show"
               @mouseleave="isHidden = true"
               alt="gallery"
-              class="object-cover object-center w-full h-full rounded-lg relative transition ease-in-out delay-150 duration-500 hover:blur-sm"
+              class="child object-cover object-center w-full h-full lg relative hover:grayscale"
               :src="project.imagesrc"
             />
           </div>
@@ -21,7 +21,7 @@
             v-if="!isHidden"
             class="absolute grid grid-rows-2 grid-flow-col line-up gap-2 flex w-full my-16 justify-center"
           >
-            <div class="flex w-full justify-center">{{ project.title }}</div>
+            <div class="flex w-full justify-center text-white-700">{{ project.title }}</div>
             <div class="flex w-full justify-center">
               {{ project.subtitleText }}
             </div>
@@ -75,4 +75,51 @@ function show() {
     transform: translateY(0%);
   }
 }
+
+.parent {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+.child {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.parent:hover .child, .parent:focus .child {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.parent:hover .child:before, .parent:focus .child:before {
+    display: block;
+}
+
+.parent:hover a, .parent:focus a {
+    display: block;
+}
+
+.child:before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(52,73,94,0.75);
+}
+
 </style>
