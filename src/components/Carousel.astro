@@ -1,3 +1,20 @@
+---
+interface Props {
+  images: CarouselImage[];
+}
+
+type CarouselImage = {
+  src: string;
+  title: string;
+  subtitle: string;
+};
+
+const { images } = Astro.props;
+
+const activeClasses = "carousel-item active relative float-left w-full";
+const inactiveClasses = "carousel-item relative float-left w-full";
+---
+
 <div
   id="carouselDarkVariant"
   class="carousel slide carousel-fade carousel-dark relative"
@@ -25,44 +42,19 @@
 
   <!-- Inner -->
   <div class="carousel-inner relative w-full overflow-hidden">
-    <!-- Single item -->
-    <div class="carousel-item active relative float-left w-full">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(19).webp"
-        class="block w-full"
-        alt="Motorbike Smoke"
-      />
-      <div class="carousel-caption hidden md:block absolute text-center">
-        <h5 class="text-xl">First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-
-    <!-- Single item -->
-    <div class="carousel-item relative float-left w-full">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(35).webp"
-        class="block w-full"
-        alt="Mountaintop"
-      />
-      <div class="carousel-caption hidden md:block absolute text-center">
-        <h5 class="text-xl">Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
-      </div>
-    </div>
-
-    <!-- Single item -->
-    <div class="carousel-item relative float-left w-full">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(40).webp"
-        class="block w-full"
-        alt="Woman Reading a Book"
-      />
-      <div class="carousel-caption hidden md:block absolute text-center">
-        <h5 class="text-xl">Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div>
+    {
+      images.map((image, index) => (
+        <>
+          <div class={index === 0 ? activeClasses : inactiveClasses}>
+            <img src={image.src} class="block w-full" alt="Motorbike Smoke" />
+            <div class="carousel-caption hidden md:block absolute text-center">
+              <h5 class="text-xl">{image.title}</h5>
+              <p>{image.subtitle}</p>
+            </div>
+          </div>
+        </>
+      ))
+    }
   </div>
   <!-- Inner -->
 
@@ -74,9 +66,8 @@
     data-bs-slide="prev"
   >
     <span
-      class="carousel-control-prev-icon inline-block bg-no-repeat"
+      class="absolute mx-16 left-0 carousel-control-prev-icon inline-block bg-no-repeat"
       aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
   </button>
   <button
     class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
@@ -85,8 +76,7 @@
     data-bs-slide="next"
   >
     <span
-      class="carousel-control-next-icon inline-block bg-no-repeat"
+      class="absolute carousel-control-next-icon mx-16 right-0 inline-block bg-no-repeat"
       aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
   </button>
 </div>
