@@ -11,8 +11,8 @@ type CarouselImage = {
 
 const { images } = Astro.props;
 
-const activeClasses = "carousel-item active relative float-left w-full";
-const inactiveClasses = "carousel-item relative float-left w-full";
+const activeClasses = "carousel-item active relative float-left max-h-screen w-full";
+const inactiveClasses = "carousel-item relative float-left max-h-screen w-full";
 ---
 
 <div
@@ -41,7 +41,7 @@ const inactiveClasses = "carousel-item relative float-left w-full";
   </div>
 
   <!-- Inner -->
-  <div class="carousel-inner relative w-full overflow-hidden">
+  <div class="carousel-inner relative overflow-hidden">
     {
       images.map((image, index) => (
         <>
