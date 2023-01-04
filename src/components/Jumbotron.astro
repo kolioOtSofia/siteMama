@@ -1,0 +1,29 @@
+---
+interface Props {
+  source: string;
+  title: string;
+  subtitle?: string;
+}
+
+const { source, title, subtitle } = Astro.props;
+---
+
+<div
+  class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover"
+  style={`
+     background-image: url(${source});
+     height: 600px;
+   `}
+>
+  <div
+    class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
+    style="background-color: rgba(0, 0, 0, 0.6)"
+  >
+    <div class="flex justify-left px-24 h-full">
+      <div class="text-white text-left absolute bottom-0 py-24">
+        <h2 class="font-semibold text-4xl mb-12">{title}</h2>
+        <h4 class="font-thin text-xl mb-6">{subtitle}</h4>
+      </div>
+    </div>
+  </div>
+</div>

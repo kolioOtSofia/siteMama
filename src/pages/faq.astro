@@ -1,7 +1,6 @@
 ---
 import Acordion from "../components/Acordion.astro";
-import Header from "../components/Header.astro";
-import MiniFooter from "../components/MiniFooter.astro";
+import Jumbotron from "../components/Jumbotron.astro";
 import Layout from "../layouts/Layout.astro";
 
 const firstAcordionItems = [
@@ -176,29 +175,14 @@ const thirdAcordionItems = [
 ];
 ---
 
-<Layout title="ВЪПРОСИ - Solair">
-  <Header />
-
+<Layout title="ВЪПРОСИ - Solair" usesSmallFooter={true}>
   <!-- Background image -->
-  <div
-    class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover"
-    style="
-     background-image: url('assets/faq/bg-image.webp');
-     height: 600px;
-   "
-  >
-    <div
-      class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
-      style="background-color: rgba(0, 0, 0, 0.6)"
-    >
-      <div class="flex justify-left px-24 h-full">
-        <div class="text-white text-left absolute bottom-0 py-24">
-          <h2 class="font-semibold text-4xl mb-12">FAQ</h2>
-          <h4 class="font-thin text-xl mb-6">Често задавани въпроси</h4>
-        </div>
-      </div>
-    </div>
-  </div>
+
+  <Jumbotron
+    source="assets/faq/bg-image.webp"
+    title="FAQ"
+    subtitle="Често задавани въпроси"
+  />
   <!-- Background image -->
 
   <div class="container mx-auto px-16">
@@ -249,7 +233,6 @@ const thirdAcordionItems = [
       <div class="w-full border-b border-gray-900"></div>
     </div>
   </div>
-  <MiniFooter />
 </Layout>
 
 <style>

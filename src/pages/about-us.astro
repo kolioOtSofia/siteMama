@@ -1,13 +1,9 @@
 ---
-import Header from "../components/Header.astro";
 import VerticalGallery from "../components/VerticalGallery.vue";
 import Layout from "../layouts/Layout.astro";
-import MiniFooter from "../components/MiniFooter.astro";
 ---
 
-<Layout title={"За нас - Solair"}>
-  <Header />
-
+<Layout title="За нас - Solair" usesSmallFooter={true}>
   <div class="container my-8 mx-16">
     <VerticalGallery />
 
@@ -217,9 +213,18 @@ import MiniFooter from "../components/MiniFooter.astro";
 
           <p class="mt-6">Специализации</p>
 
-          <p class="mt-4">Сертифициран преподавател за нискоенергийни и пасивни сгради, Passive House Institute (PHI), Darmstadt, Germany</p>
-          <p class="mt-4">Лицензиран проектант за обследване на енергийна ефективност  и сертифициране на сгради , ТУ, София</p>
-          <p class="mt-4">Лицензиран проектант на сгради паметници на културата , Министерство на Културата, София</p>
+          <p class="mt-4">
+            Сертифициран преподавател за нискоенергийни и пасивни сгради,
+            Passive House Institute (PHI), Darmstadt, Germany
+          </p>
+          <p class="mt-4">
+            Лицензиран проектант за обследване на енергийна ефективност и
+            сертифициране на сгради , ТУ, София
+          </p>
+          <p class="mt-4">
+            Лицензиран проектант на сгради паметници на културата , Министерство
+            на Културата, София
+          </p>
 
           <p class="mt-6">Чужди езици</p>
 
@@ -227,9 +232,19 @@ import MiniFooter from "../components/MiniFooter.astro";
 
           <p class="mt-6">Работа към други фирми и организации</p>
 
-          <p class="mt-4">2000-2001 – Cibex International, Paris; Coteba Int., Paris, клон София. Супервайзер на обект Хилтън, София, част Архитектура</p>
-          <p class="mt-4">1998-2000 – ICON Architecture and Urban Design, Dublin, Ireland. Проекти по националната програма “Tidy Towns” за възобновяване и благоустрояване на градски структури и жилищни квартали в Ирландия.</p>
-          <p class="mt-4">1997-1998 – Italian Design Center, София. Интериорни проекти за обзавеждане и осветление на жилищни и обществени сгради.</p>
+          <p class="mt-4">
+            2000-2001 – Cibex International, Paris; Coteba Int., Paris, клон
+            София. Супервайзер на обект Хилтън, София, част Архитектура
+          </p>
+          <p class="mt-4">
+            1998-2000 – ICON Architecture and Urban Design, Dublin, Ireland.
+            Проекти по националната програма “Tidy Towns” за възобновяване и
+            благоустрояване на градски структури и жилищни квартали в Ирландия.
+          </p>
+          <p class="mt-4">
+            1997-1998 – Italian Design Center, София. Интериорни проекти за
+            обзавеждане и осветление на жилищни и обществени сгради.
+          </p>
         </div>
         <div class="col-span-2 px-4">
           <div class="container">
@@ -240,7 +255,8 @@ import MiniFooter from "../components/MiniFooter.astro";
           <p class="mt-6">Образование</p>
 
           <p class="mt-4">
-            Университет на Руан, Франция 1995-1996, Магистър по урбанизъм и градоустройство.
+            Университет на Руан, Франция 1995-1996, Магистър по урбанизъм и
+            градоустройство.
           </p>
           <p class="mt-4">
             Университет по Архитектура, строителство и геодезия, София, 1997год.
@@ -250,9 +266,18 @@ import MiniFooter from "../components/MiniFooter.astro";
 
           <p class="mt-6">Специализации</p>
 
-          <p class="mt-4">Сертифициран проектант на пасивни сгради, Сертификат “Passive house designer”, Passive House Institute (PHI), Darmstadt, Germany</p>
-          <p class="mt-4">Лицензиран проектант на сгради паметници на културата , Министерство на Културата, София</p>
-          <p class="mt-4">Сертифициран преподавател за нискоенергийни и пасивни сгради, Passive House Institute (PHI), Darmstadt, Germany</p>
+          <p class="mt-4">
+            Сертифициран проектант на пасивни сгради, Сертификат “Passive house
+            designer”, Passive House Institute (PHI), Darmstadt, Germany
+          </p>
+          <p class="mt-4">
+            Лицензиран проектант на сгради паметници на културата , Министерство
+            на Културата, София
+          </p>
+          <p class="mt-4">
+            Сертифициран преподавател за нискоенергийни и пасивни сгради,
+            Passive House Institute (PHI), Darmstadt, Germany
+          </p>
 
           <p class="mt-6">Чужди езици</p>
 
@@ -260,13 +285,27 @@ import MiniFooter from "../components/MiniFooter.astro";
 
           <p class="mt-6">Работа към други фирми и организации</p>
 
-          <p class="mt-4">2005-2006 – Dorsch Consult, Germany, ръководител на отдел проектиране</p>
-          <p class="mt-4">2004 – STRAАBAG International GMBH, Austria, клон София, главен изпълнител на летище София.</p>
-          <p class="mt-4">1998-2000 – ICON Architecture and Urban Design, Dublin, Ireland. Проекти по националната програма “Tidy Towns” за възобновяване и благоустрояване на градски структури и жилищни квартали в Ирландия.</p>
-          <p class="mt-4">1996-1997 – Архитектурен отдел към кметството на община Мейо, Ирландия. Благоустрояване на градски центрове. Проекти за подновяване и освежаване на улични фасадни фронтове по основните градски улични артерии.</p>
+          <p class="mt-4">
+            2005-2006 – Dorsch Consult, Germany, ръководител на отдел
+            проектиране
+          </p>
+          <p class="mt-4">
+            2004 – STRAАBAG International GMBH, Austria, клон София, главен
+            изпълнител на летище София.
+          </p>
+          <p class="mt-4">
+            1998-2000 – ICON Architecture and Urban Design, Dublin, Ireland.
+            Проекти по националната програма “Tidy Towns” за възобновяване и
+            благоустрояване на градски структури и жилищни квартали в Ирландия.
+          </p>
+          <p class="mt-4">
+            1996-1997 – Архитектурен отдел към кметството на община Мейо,
+            Ирландия. Благоустрояване на градски центрове. Проекти за
+            подновяване и освежаване на улични фасадни фронтове по основните
+            градски улични артерии.
+          </p>
         </div>
       </div>
     </div>
   </div>
-  <MiniFooter />
 </Layout>

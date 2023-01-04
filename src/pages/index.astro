@@ -1,9 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 import Gallery from "../components/Gallery.vue";
 import Carousel from "../components/Carousel.astro";
-import Footer from "../components/Footer.astro";
 
 let projectsArray = [
   {
@@ -61,18 +59,15 @@ const carouselImages = [
     subtitle: undefined,
   },
 ];
-
 ---
 
 <script src="../../node_modules/tw-elements/dist/js/index.min.js"></script>
-<Layout title={'Solair - solair passive house'}>
-  <Header/>
-  <Carousel images={carouselImages}/>
+<Layout title={"Solair - solair passive house"} usesSmallFooter={false}>
+  <Carousel images={carouselImages} />
   <div class="flex justify-center my-36">
     <div class="text-4xl font-semibold my-xl">Избрани проекти</div>
   </div>
-  <Gallery client:load projects={projectsArray}/>
-  <Footer />
+  <Gallery client:load projects={projectsArray} />
 </Layout>
 
 <style>
