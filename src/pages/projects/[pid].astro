@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { pid: 1 } },
+    { params: { pid: 2 } },
+    { params: { pid: 3 } },
+  ];
+}
+
+const { pid } = Astro.params;
+---
+
+<Layout usesSmallFooter={true}>{pid}</Layout>

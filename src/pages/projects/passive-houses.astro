@@ -1,0 +1,9 @@
+---
+import GridGallery from "../../components/GridGallery.vue";
+import Layout from "../../layouts/Layout.astro";
+import { projectsArray } from "../index.astro";
+---
+
+<Layout usesSmallFooter={true}>
+  <GridGallery projects={projectsArray} />
+</Layout>
